@@ -9,6 +9,6 @@ namespace BinarySearchTree
         public int Index { get; set; }
         public T Value { get; set; }
         public Node<T> LeftNode { get; set; }
-        public Node<T> RightNoed { get; set; }
+        public Node<T> RightNode { get; set; }
     }
 }
