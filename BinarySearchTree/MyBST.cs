@@ -88,9 +88,13 @@ namespace BinarySearchTree
                 {
                     NowNode.LeftNode = new Node<T> { Index = NewIndex, Value = NewValue };
                 }
+                else if(NowNode.LeftNode.Index==NewIndex)
+                {
+                    throw new Exception($"Duplicate Index '{NewIndex}' Happened !! ");
+                }
                 else
                 {
-                    GoNextStage(NowNode.LeftNode,NewIndex,NewValue);
+                    GoNextStage(NowNode.LeftNode, NewIndex, NewValue);
                 }
 
             }
@@ -99,6 +103,10 @@ namespace BinarySearchTree
                 if (NowNode.RightNode == null)
                 {
                     NowNode.RightNode = new Node<T> { Index = NewIndex, Value = NewValue };
+                }
+                else if (NowNode.RightNode.Index == NewIndex)
+                {
+                    throw new Exception($"Duplicate Index '{NewIndex}' Happened !! ");
                 }
                 else
                 {

@@ -11,6 +11,7 @@ namespace BinarySearchTree
         public void start()
         {
             StartTime = DateTime.Now;
+            TimeSpan =TimeSpan.Zero;
         }
         public void stop()
         {
