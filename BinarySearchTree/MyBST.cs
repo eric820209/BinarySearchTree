@@ -16,17 +16,35 @@ namespace BinarySearchTree
             }
             else
             {
-                var ControlNode = Root;
-                while (ControlNode != null)
+                if (NewIndex < Root.Index)//新數字小要放左邊
                 {
-                    if (NewIndex < ControlNode.Index)
-                        ControlNode = ControlNode.LeftNode;
-                    else if (NewIndex > ControlNode.Index)
-                        ControlNode = ControlNode.RightNode;
+                   
+                    if (Root.LeftNode == null)
+                    {
+                        Root.LeftNode = new Node<T> { Index = NewIndex, Value = NewValue };
+                    }
                     else
-                        throw new Exception($"Duplicate Index '{NewIndex}' Happened !! ");
+                    {
+                        GoNextStage(Root.LeftNode,NewIndex,NewValue);
+                    }
                 }
-                ControlNode = new Node<T> { Index = NewIndex, Value = NewValue };
+                else if (NewIndex > Root.Index)//新數字大要放右邊
+                {
+                    
+                    if (Root.RightNode == null)
+                    {
+                        Root.RightNode = new Node<T> { Index = NewIndex, Value = NewValue };
+                    }
+                    else
+                    {
+                        GoNextStage(Root.RightNode, NewIndex, NewValue);
+                    }
+
+                }
+                else
+                {
+                    throw new Exception($"Duplicate Index '{NewIndex}' Happened !! ");
+                }
             }
 
         }
@@ -58,6 +76,33 @@ namespace BinarySearchTree
                 else
                 {
                     return ControlNode.Value;
+                }
+            }
+        }
+
+        private void GoNextStage(Node<T> NowNode,int NewIndex ,T NewValue)
+        {
+            if (NewIndex < NowNode.Index)
+            {
+                if (NowNode.LeftNode == null)
+                {
+                    NowNode.LeftNode = new Node<T> { Index = NewIndex, Value = NewValue };
+                }
+                else
+                {
+                    GoNextStage(NowNode.LeftNode,NewIndex,NewValue);
+                }
+
+            }
+            else
+            {
+                if (NowNode.RightNode == null)
+                {
+                    NowNode.RightNode = new Node<T> { Index = NewIndex, Value = NewValue };
+                }
+                else
+                {
+                    GoNextStage(NowNode.RightNode, NewIndex, NewValue);
                 }
             }
         }
