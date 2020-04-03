@@ -61,13 +61,16 @@ namespace BinarySearchTree
             else
             {
                 var ControlNode = Root;
-
                 while (Index != ControlNode.Index)
                 {
                     if (Index < ControlNode.Index)
                         ControlNode = ControlNode.LeftNode;
                     else if (Index > ControlNode.Index)
                         ControlNode = ControlNode.RightNode;
+                    if (ControlNode == null)
+                    { 
+                    
+                    }
                 }
                 if (ControlNode == null)
                 {
