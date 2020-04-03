@@ -51,7 +51,6 @@ namespace BinarySearchTree
             }
             catch (Exception ex)
             {
-
                 Console.WriteLine(ex.ToString());
                 Console.ReadLine();
             }
