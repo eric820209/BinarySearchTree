@@ -50,7 +50,7 @@ namespace BinarySearchTree
                 Product Listp = products.Where(x => x.ProductId == index).Single();
                 timeStoper2.stop();
                 Console.WriteLine($"{Listp.ProductId},List查詢所花時間{timeStoper2.getSpan()}");
-
+                //??
             }
             catch (Exception ex)
             {
